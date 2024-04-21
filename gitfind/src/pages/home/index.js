@@ -5,7 +5,6 @@ import ItemList from "../../components/ItemList";
 import './styles.css'
 import { useState } from "react";
 
-
 function App() {
   const [user, setUser] = useState('');
   const [currentUser,setCurrentUser] = useState(null);
