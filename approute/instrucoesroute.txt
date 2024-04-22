@@ -1,0 +1,28 @@
+1. Instalar o pacote router
+yarn add react-router-dom
+
+2. importar as bibliotecas no app e colocar as rotas
+exemplo:
+
+import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,  
+} from "react-router-dom";
+
+import  Home  from './pages/home';
+import  Login from './pages/login'
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/login" element={<Login/>} />        
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
