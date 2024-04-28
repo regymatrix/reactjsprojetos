@@ -30,3 +30,5 @@ export default App;
 
 
 https://react-hook-form.com/get-started
+
+npm install -g json-server

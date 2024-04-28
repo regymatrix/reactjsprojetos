@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom/dist';
 import { useForm, SubmitHandler } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
+import { api } from '../../services/api'
 
 
 const schema = yup.object({
@@ -34,7 +35,23 @@ function Login() {
   
   console.log(isValid, errors)
 
-  const onSubmit = data => console.log(data);
+  const onSubmit = async formData => {
+    console.log(formData);
+    try {
+      const {data} =await api.get(`users?email=${formData.email}&senha=${formData.password}`);
+      console.log("retorno api", data);
+      if (data.length===1){
+        navigate('/feed')
+      }else{
+        alert("Usuário não encontrado");
+      }
+
+    }catch{
+      alert("Houve um erro, tente novamente");
+    }
+
+  
+  }
 
   return (<>
       <Header/>
