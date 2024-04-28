@@ -4,32 +4,48 @@ import {
     BuscarInputContainer,
     Column,
     Container,
+    ImgLogo,
     Input,
     Menu,
     MenuRight,
     Row,
     UserPicture,
-    Wrapper
+    Wrapper,    
 
 } from './styles'
 
 
-const  Header = () =>{
+const  Header = ({autenticado}) =>{
     return (
         <Wrapper>
             <Container>
                 <Row>
-                     <img src="" alt="logo do dio"/>
-                    <BuscarInputContainer>
+                    <ImgLogo src="https://hermes.digitalinnovation.one/assets/diome/logo-full.svg" alt="logo do dio"/>
+
+                    {autenticado ? ( 
+                    <>
+                        <BuscarInputContainer>
                         <Input placeholder="Buscar..."/>                        
-                    </BuscarInputContainer>
-                    <Menu>Live Code</Menu>
-                    <Menu>Global</Menu>
+                        </BuscarInputContainer>
+                        <Menu>Live Code</Menu>
+                        <Menu>Global</Menu>
+                    </>
+                    ) : null}
+                  
                 </Row>
                 <Row>
-                    <MenuRight href="#">Home</MenuRight>
-                    <Button title="Entrar"></Button>
-                    <Button title="Sair"></Button>
+                    {autenticado ? ( 
+                     <>
+                       <UserPicture  src="https://avatars.githubusercontent.com/u/105677816?v=4"    />
+                     </>
+                    ): (
+                    <>
+                         <MenuRight href="#">Home</MenuRight>
+                        <Button title="Entrar"></Button>
+                        <Button title="Sair"></Button>
+                    </>
+                    )}
+                 
                 </Row>
             </Container>
         </Wrapper>

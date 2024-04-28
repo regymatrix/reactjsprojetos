@@ -79,3 +79,8 @@ export const Input = styled.input`
 
 `
 
+export const ImgLogo = styled.img`
+  widht: 32px;
+  height: 20px;
+`
+

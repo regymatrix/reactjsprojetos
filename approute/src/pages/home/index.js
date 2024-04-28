@@ -3,31 +3,42 @@ import { Button } from '../../components/Button';
 import { Header } from '../../components/Header';
 import {
   Container, TextContent, Title, TitleHighlight
-} from '/.styles'
+} from './styles'
+import { useNavigate } from 'react-router-dom/dist';
+
 
 function Home() {
+
+  const navigate = useNavigate();
+
+  const handleClickSignIn=()=>{
+    navigate('/login')
+  }
   return (
-    <div className="HomeClass">
-      <Header/>
+   <>
+      <Header autenticado={false} />
       <Container>
         <div>
           <Title> 
             <TitleHighlight>
                   Implemente  
-                  <br/>
-                  O seu futuro global agora!
+                  <br/>             
             </TitleHighlight>
+            O seu futuro global agora!
           </Title>
           <TextContent>
-            
+           Domine as tecnologias utilizadas pelas empresas mais inovadoras do mundo e encare o seu novo desafio profissional,
+           evoluindo em comunidade com os melhores experts. 
           </TextContent>
+          <Button title="Começar agora" variant="primary" onClick={handleClickSignIn} />
         </div>
+   
         <div>
           <img src="" alt="Imagem principal"/>
         </div>
 
       </Container>
-    </div>
+      </>
   );
 }
 
