@@ -1,3 +1,4 @@
+import React, {useContext} from 'react';
 import { Link } from 'react-router-dom'
 import { Button } from '../../components/Button';
 import { Header } from '../../components/Header';
@@ -5,23 +6,26 @@ import {
   Container, TextContent, Title, TitleHighlight
 } from './styles'
 import { useNavigate } from 'react-router-dom/dist';
+import { UserContext } from '../../contexts/userContext';
+
 
 
 function Home() {
-
+  const user = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleClickSignIn=()=>{
     navigate('/login')
   }
   return (
+   
    <>
       <Header autenticado={false} />
       <Container>
         <div>
           <Title> 
             <TitleHighlight>
-                  Implemente  
+                  Implemente  {user.userName} !
                   <br/>             
             </TitleHighlight>
             O seu futuro global agora!
